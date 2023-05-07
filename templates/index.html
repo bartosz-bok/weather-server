@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css"
+
+</head>
+<body>
+    <h1>Sprawdzenie pogody na żywo dla Bejbika :*</h1>
+    <form method="post" action="{{ url_for('check_weather') }}" id="weather_form">
+        <label for="city">Miasto:</label>
+        <input type="text" name="city" id="city">
+        <br/>
+        <input type="submit" value="ENTER"/>
+    </form>
+    {% if is_success == True %}
+        <br/>
+        <p>W miescie {{city}} jest temperatura {{result}}&#8451;</p>
+    {% endif %}
+    {% if is_success == False %}
+        <br/>
+        <p>{{error}}</p>
+    {% endif %}
+</body>
+</html>
